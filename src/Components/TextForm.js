@@ -89,18 +89,16 @@ export default function TextForm(props) {
 
           <button  className="btn btn-primary  mx-1" onClick={handleCopy}>
             Copy
-          </button>
-       
+          </button>       
       </div>
     <div className="container my-3" style={{color: props.mode ==='dark'?'white':'#042743'}}>
         <h2>Your Text Summary</h2>
-        {/* <p> {text.split(" ").length} words and {text.length} characters </p> */}
-        <p> {text.length} characters </p>
+        <p> {text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters </p>
+        {/* <p> {text.length} characters </p> */}
         <p> Time taken to read the words :{0.008*text.split(" ").length} </p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter Something in the textbox to preview!!"}</p>
-    </div>
-
+    </div>  
     </>
   );
 }
